@@ -2,10 +2,9 @@ import NavList from './NavList.js'
 import {Link} from 'react-router-dom'
 function Nav(){
     return (
-            <div className='container-fluid sticky-top m-0 p-0'>
-                <nav className='navbar navbar-expand-lg primary-color bg-gradient shadow-sm' data-bs-theme='dark'>
-                    <div className='container-fluid m-0'>
-                        <Link className='navbar-brand mx-3' to='/'>JessePiccione.info</Link>
+            <div className='container-fluid sticky-top primary-color bg-gradient d-flex justify-content-center'>
+                <nav className='navbar col-12 col-xxl-7 navbar-expand-lg  shadow-sm' data-bs-theme='dark'>
+                        <Link className='navbar-brand' to='/'>JessePiccione.info</Link>
                         <button 
                         className="navbar-toggler"
                         type="button"
@@ -19,7 +18,7 @@ function Nav(){
                         <div className='collapse navbar-collapse' id ='navbarSupportedContent'>
                             <NavList/>
                         </div>
-                    </div>
+                    
                 </nav>
             </div> 
     );

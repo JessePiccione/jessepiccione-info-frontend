@@ -41,11 +41,11 @@ function AppLoader() {
       <div className="col-12 d-flex primary-color bg-gradient" style={{height:'100vh'}}>
         <div className='col-10 col-xxl-6 m-auto'>
           <Card>
+            <HeaderTwo title={(error)?error.message:'Initiating Backend Services...'}/>
             <img className='img-fluid m-auto rounded-profile rotate' style={{
-              maxHeight:'250px',
-              maxWidth:'250px'
+              minHeight:'250px',
+              minWidth:'250px'
             }} alt='' src = 'static/img/resume_site_profile.jpg'/>
-            <HeaderTwo title={(error)?error.message:'Initiating backend services...'}/>
           </Card>
         </div>
       </div>

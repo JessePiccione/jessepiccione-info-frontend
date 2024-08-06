@@ -15,9 +15,9 @@ function Main(){
         <div>
             <Nav/>
             <main>
-                <div className='container-fluid m-0 p-0 z-3' style={{minHeight:'70vh'}}> 
-                    <div id ="mainContentContainer" className='container-fluid'>
-                        <Routes id='mainContentContainer' className='container-fluid'>
+                <div className='container-fluid m-0 p-0 z-3 d-flex flex-column justify-content-center' style={{minHeight:'70vh'}}> 
+                    <div id ="mainContentContainer" className='container-fluid col-12 col-xxl-7'>
+                        <Routes id='mainContentContainer'>
                             <Route path='/' element={<Home/>}></Route>
                             <Route path='/experience' element={<Experience/>}></Route>
                             <Route path='/education' element={<Education/>}></Route>
@@ -26,7 +26,7 @@ function Main(){
                             <Route path='/awards' element={<Awards/>}></Route>
                         </Routes>
                     </div>
-                    <div className="container-fluid">
+                    <div className="container-fluid col-12 col-xxl-7">
                         <div className='row justify-content-md-center'>
                             <div className='col-12 col-xxl-6 pt-3'>
                                 <Card>

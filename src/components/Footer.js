@@ -1,23 +1,28 @@
+import NavList from './NavList'
 function Footer(){
     return (
-        <footer>
-            <div className="m-0 p-0 container-fluid text-light">
-                <div className='row primary-color bg-gradient m-0 py-3 px-0'>
-                    <div className='col-6 text-start m-0' style={{overflow:'none'}}>
+        <footer className='container-fluid text-light primary-color bg-gradient d-flex justify-content-center'>
+            <div className="col-12 col-xxl-7">
+                <nav className="pt-3">
+                    <NavList/>
+                </nav>
+                <hr /> 
+                <div className='d-flex justify-content-between py-3 px-0'>
+                    <div className='align-self-start text-start my-0 ps-2' style={{overflow:'none'}}>
                         <p style={{fontSize:'0.90em'}}>Email: jessepiccione@gmail.com
                         <br />    
                         Phone: 732-908-0037</p>
                     </div>
-                    <div className='col-6 text-end m-0 px-3'>
-                        <a className='text-white text-decoration-none' href='https://www.linkedin.com/in/jesse-piccione'>
+                    <div className='text-end m-0 px-2'>
+                        <a href='https://www.linkedin.com/in/jesse-piccione'>
                             LinkedIn <i className="fa-brands fa-linkedin"></i>
                         </a>
                         <br />
-                        <a className='text-white text-decoration-none' href='https://www.facebook.com/jesse.piccione'>
+                        <a href='https://www.facebook.com/jesse.piccione'>
                             Facebook <i className='fa-brands fa-facebook'></i>
                         </a>
                         <br />
-                        <a className='text-white text-decoration-none' href='https://github.com/JessePiccione'>
+                        <a href='https://github.com/JessePiccione'>
                             Github <i className='fa-brands fa-github'></i>
                         </a>
                     </div>
