@@ -3,7 +3,7 @@ import React, {useState, useEffect} from 'react'
 //providers
 import {Url} from '../providers/APIUrlProvider.js'
 //components
-import AssistantMessageBox from './AssistantMessageBox.js'
+import AssistantMessageBox from './assistantMessageBox.js'
 const Assistant = () =>{
     const {url,token} = Url()
     const [data, setData] = useState([<AssistantMessageBox key='placeholder' assistant={true} placeholder={true}/>])

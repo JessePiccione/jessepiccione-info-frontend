@@ -5,8 +5,8 @@ import {Url} from '../providers/APIUrlProvider.js'
 import Card from '../providers/Card.js'
 //Components
 import PlaceHolder from './PlaceHolder.js'
-import HeaderTwo from './HeaderTwo.js'
-import ListGroupItem from './ListGroupItem.js'
+import HeaderTwo from './headerTwo.js'
+import ListGroupItem from './listGroupItem.js'
 function Awards(){
     const {url,token} = Url()
     const [loading, setLoading] = useState(true)

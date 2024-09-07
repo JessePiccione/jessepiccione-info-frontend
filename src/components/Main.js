@@ -7,7 +7,7 @@ import Education from './Education.js'
 import Projects from './Projects.js'
 import Skills from './Skills.js'
 import Awards from './Awards.js'
-import HeaderTwo from './HeaderTwo.js'
+import HeaderTwo from './headerTwo.js'
 import OffCanvasButton from './OffCanvasButton.js'
 import Card from '../providers/Card.js'
 function Main(){

@@ -5,8 +5,8 @@ import Card from '../providers/Card.js'
 import {Url} from '../providers/APIUrlProvider.js'
 //Components
 import PlaceHolder from './PlaceHolder.js'
-import HeaderTwo from './HeaderTwo.js'
-import ListGroupItem from './ListGroupItem.js'
+import HeaderTwo from './headerTwo.js'
+import ListGroupItem from './listGroupItem.js'
 function Education(){   
     const {url,token} = Url()
     const [data, setData] = useState(null)

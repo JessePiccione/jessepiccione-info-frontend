@@ -2,8 +2,8 @@ import React, {useState, useEffect} from 'react'
 import {Url} from '../providers/APIUrlProvider.js'
 import PlaceHolder from './PlaceHolder.js'
 import Card from '../providers/Card.js'
-import HeaderTwo from './HeaderTwo.js'
-import ListGroupItem from './ListGroupItem.js'
+import HeaderTwo from './headerTwo.js'
+import ListGroupItem from './listGroupItem.js'
 function Experience(props){
     const {url,token} = Url();
     const [experience, setExperience] = useState(null)

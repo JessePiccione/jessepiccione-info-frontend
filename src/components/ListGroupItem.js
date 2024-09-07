@@ -1,4 +1,4 @@
-const ListGroupItem = props =>{
+const listGroupItem = props =>{
     return (
         <li key={props.name} className='list-group-item list-group-item-action'>
             <b>
@@ -7,4 +7,4 @@ const ListGroupItem = props =>{
         </li>
     )
 }
-export default ListGroupItem
+export default listGroupItem

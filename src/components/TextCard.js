@@ -1,4 +1,4 @@
-function TextCard(props){
+function textCard(props){
     return (
         <div className='card bg-white bg-opacity-75 border border-0 shadow-sm'>
             <div className='card-body'>
@@ -10,4 +10,4 @@ function TextCard(props){
         </div>
     );
 }
-export default TextCard;
+export default textCard;

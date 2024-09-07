@@ -1,4 +1,4 @@
-const Iframe = props => {
+const iframe = props => {
     return (
         
         <div className='ratio ratio-16x9'>
@@ -7,4 +7,4 @@ const Iframe = props => {
         </div>
     )
 }
-export default Iframe
+export default iframe

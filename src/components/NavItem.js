@@ -1,5 +1,5 @@
 import {Link} from 'react-router-dom'
-function NavItem(props){
+function navItem(props){
     return (
     <li key={props.i}
         className='nav-item'>
@@ -12,4 +12,4 @@ function NavItem(props){
         </Link>
     </li>);
 }
-export default NavItem;
+export default navItem;
