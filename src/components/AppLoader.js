@@ -12,6 +12,7 @@ import Main from './Main.js'
 import Footer from './Footer.js'
 import HeaderTwo from './headerTwo.js'
 function AppLoader() {
+  const [loadingState, setLoadingState] = useState({loading:true,error:null});
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
   useEffect(()=>{
@@ -22,7 +23,7 @@ function AppLoader() {
           await request.text()
         }
         catch (error) {
-          setError(error)
+          setLoadingState(error)
         }
         finally{
           await new Promise(resolve=> setTimeout(resolve, 2000))
@@ -60,7 +61,6 @@ function AppLoader() {
         <Assistant/>
         <Footer/>
       </APIUrlProvider>
-      
     </div>
   )
 }
