@@ -1,5 +1,5 @@
 runtime: nodejs22
-entrypoint: npx serve build -l 8080
+entrypoint: npx install serve | npx serve build -l 8080
 instance_class: F1
 automatic_scaling:
   target_cpu_utilization: 0.65
