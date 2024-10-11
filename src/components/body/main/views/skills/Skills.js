@@ -1,11 +1,11 @@
 //React
 import React, {useState, useEffect} from 'react'
 //Providers 
-import {Url} from '../providers/APIUrlProvider.js'
+import {Url} from '../../../../../providers/APIUrlProvider.js'
 //Components
-import PlaceHolder from './PlaceHolder.js'
-import HeaderTwo from './headerTwo.js'
-import ListGroupItem from './listGroupItem.js'
+import PlaceHolder from '../../placeholder/PlaceHolder.js'
+import HeaderTwo from '../../../partials/headerTwo.js'
+import ListGroupItem from '../../../partials/listGroupItem.js'
 function Skills(){
     const {url} = Url()
     const [loading,setLoading] = useState(true)

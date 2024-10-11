@@ -1,17 +1,15 @@
 import React, {useState, useEffect} from 'react'
-import {Url} from '../providers/APIUrlProvider.js'
-import PlaceHolder from './PlaceHolder.js'
-import Card from '../providers/Card.js'
-import HeaderTwo from './headerTwo.js'
-import ListGroupItem from './listGroupItem.js'
+import {Url} from '../../../../../providers/APIUrlProvider.js'
+import PlaceHolder from '../../placeholder/PlaceHolder.js'
+import Card from '../../../../../providers/Card.js'
+import HeaderTwo from '../../../partials/headerTwo.js'
+import ListGroupItem from '../../../partials/listGroupItem.js'
 function Experience(props){
     const {url,token} = Url();
     const [experience, setExperience] = useState(null)
     const [error, setError] = useState(null)
     const [loading, setLoading] = useState(true)
     const [animation, setAnimation] = useState(false)
-    
-
     useEffect(()=>{
         const fetchExperience = async () =>{
             if(loading && !animation && !experience){

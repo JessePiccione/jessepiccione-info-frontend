@@ -1,12 +1,12 @@
 
 import React, { useState, useEffect } from 'react'
-import {Url} from  '../providers/APIUrlProvider.js'
-import Card from  '../providers/Card.js'
-import PlaceHolder from './PlaceHolder.js'
-import HeaderTwo from './headerTwo.js'
-import TextCard from './textCard.js'
+import {Url} from  '../../../../../providers/APIUrlProvider.js'
+import Card from  '../../../../../providers/Card.js'
+import PlaceHolder from '../../placeholder/PlaceHolder.js'
+import HeaderTwo from '../../../partials/headerTwo.js'
+import TextCard from '../../../partials/textCard.js'
 import HiddenTechnologyList from './HiddenTechnologyList.js'
-import Iframe from './iframe.js'
+import Iframe from '../../../partials/iframe.js'
 function Home(props){
     const {url,token} = Url()
     const [data, setData] = useState(null)

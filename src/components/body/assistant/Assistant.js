@@ -1,7 +1,7 @@
 //react
 import React, {useState, useEffect} from 'react'
 //providers
-import {Url} from '../providers/APIUrlProvider.js'
+import {Url} from '../../../providers/APIUrlProvider.js'
 //components
 import AssistantMessageBox from './assistantMessageBox.js'
 const Assistant = () =>{
@@ -31,6 +31,7 @@ const Assistant = () =>{
                 }
                 catch(error){
                     setError(error)
+                    console.log(error)
                 }
                 finally {
                     setLoading(false)
@@ -38,9 +39,7 @@ const Assistant = () =>{
             }
             messageAssistant();
     },[message,data,token,url])
-useEffect(()=>{
-    if(messageRows) messageRows.scrollTop = messageRows.scrollHeight
-})
+    useEffect(()=>{if(messageRows) messageRows.scrollTop = messageRows.scrollHeight})
     return (
         <div className="container-fluid text-light my-2 sticky-bottom d-flex justify-content-center">
             <div className='row col-12 col-xxl-7 d-flex justify-content-end'>

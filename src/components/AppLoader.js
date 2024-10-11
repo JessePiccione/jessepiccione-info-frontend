@@ -1,16 +1,15 @@
 //react
 import React, {useEffect, useState} from 'react'
-import '../App.css'
 //providers
 import APIUrlProvider from '../providers/APIUrlProvider.js'
 import Card from '../providers/Card.js'
 //components
-import VantaBackground from './VantaBackground.js'
-import Assistant from './Assistant.js'
-import Header from './Header.js'
-import Main from './Main.js'
-import Footer from './Footer.js'
-import HeaderTwo from './headerTwo.js'
+import VantaBackground from './vanta/VantaBackground.js'
+import Assistant from './body/assistant/Assistant.js'
+import Header from './body/header/Header.js'
+import Main from './body/main/Main.js'
+import Footer from './body/footer/Footer.js'
+import HeaderTwo from './body/partials/headerTwo.js'
 function AppLoader() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
@@ -18,7 +17,7 @@ function AppLoader() {
     const wakeUpCall = async () =>{
       if(!ignore){
         try{
-          const request = await fetch('https://jessepiccione-info-backend.ue.r.appspot.com')
+          const request = await fetch('https://jessepiccione-info-backend.ue.r.appspot.com/')//'https://literate-space-enigma-6wq4rw6577rfrr4j-8080.app.github.dev/'
           await request.text()
         }
         catch (error) {
@@ -60,7 +59,6 @@ function AppLoader() {
         <Assistant/>
         <Footer/>
       </APIUrlProvider>
-      
     </div>
   )
 }

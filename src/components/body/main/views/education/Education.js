@@ -1,12 +1,12 @@
 //React
 import React, {useState, useEffect} from 'react'
 //Providers
-import Card from '../providers/Card.js'
-import {Url} from '../providers/APIUrlProvider.js'
+import Card from '../../../../../providers/Card.js'
+import {Url} from '../../../../../providers/APIUrlProvider.js'
 //Components
-import PlaceHolder from './PlaceHolder.js'
-import HeaderTwo from './headerTwo.js'
-import ListGroupItem from './listGroupItem.js'
+import PlaceHolder from '../../placeholder/PlaceHolder.js'
+import HeaderTwo from '../../../partials/headerTwo.js'
+import ListGroupItem from '../../../partials/listGroupItem.js'
 function Education(){   
     const {url,token} = Url()
     const [data, setData] = useState(null)
