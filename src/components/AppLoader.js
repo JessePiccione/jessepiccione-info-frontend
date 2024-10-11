@@ -11,6 +11,7 @@ import Main from './body/main/Main.js'
 import Footer from './body/footer/Footer.js'
 import HeaderTwo from './body/partials/headerTwo.js'
 function AppLoader() {
+  const [loadingState, setLoadingState] = useState({loading:true,error:null});
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
   useEffect(()=>{
@@ -21,7 +22,7 @@ function AppLoader() {
           await request.text()
         }
         catch (error) {
-          setError(error)
+          setLoadingState(error)
         }
         finally{
           await new Promise(resolve=> setTimeout(resolve, 2000))
