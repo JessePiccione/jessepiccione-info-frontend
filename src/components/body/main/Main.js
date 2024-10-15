@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {memo} from 'react'
 import {Routes, Route} from 'react-router-dom'
 import Nav from './nav/Nav.js'
 import Home from './views/home/Home.js'
@@ -11,6 +11,12 @@ import HeaderTwo from '../partials/headerTwo.js'
 import OffCanvasButton from './OffCanvasButton.js'
 import Card from '../../../providers/Card.js'
 function Main(){
+    const MemoHome = memo(Home, [])
+    const MemoExperience = memo(Experience, [])
+    const MemoEducation = memo(Education, [])
+    const MemoProjects = memo(Projects, [])
+    const MemoSkills = memo(Skills, [])
+    const MemoAwards = memo(Awards, [])
     return (
         <div>
             <Nav/>
@@ -18,12 +24,12 @@ function Main(){
                 <div className='container-fluid m-0 p-0 z-3 d-flex flex-column justify-content-center' style={{minHeight:'70vh'}}> 
                     <div id ="mainContentContainer" className='container-fluid col-12 col-xxl-7'>
                         <Routes id='mainContentContainer'>
-                            <Route path='/' element={<Home/>}></Route>
-                            <Route path='/experience' element={<Experience/>}></Route>
-                            <Route path='/education' element={<Education/>}></Route>
-                            <Route path='/projects' element={<Projects/>}></Route>
-                            <Route path='/skills' element={<Skills/>}></Route>
-                            <Route path='/awards' element={<Awards/>}></Route>
+                            <Route path='/' element={<MemoHome/>}></Route>
+                            <Route path='/experience' element={<MemoExperience/>}></Route>
+                            <Route path='/education' element={<MemoEducation/>}></Route>
+                            <Route path='/projects' element={<MemoProjects/>}></Route>
+                            <Route path='/skills' element={<MemoSkills/>}></Route>
+                            <Route path='/awards' element={<MemoAwards/>}></Route>
                         </Routes>
                     </div>
                     <div className="container-fluid col-12 col-xxl-7">
