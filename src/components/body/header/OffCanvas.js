@@ -1,7 +1,7 @@
 //react
 import React, {useState, useEffect} from 'react'
 //providers
-import {Url} from '../providers/APIUrlProvider.js'
+import {Url} from '../../../providers/APIUrlProvider.js'
 function OffCanvas(){
     const {url,token} = Url()
     const [sent, setSent] = useState(false)
