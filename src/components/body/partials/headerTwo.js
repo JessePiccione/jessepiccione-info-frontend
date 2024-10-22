@@ -1,4 +1,4 @@
-function HeaderTwo(props){
+const HeaderTwo = props => {
     return (
         <div className='shadow-sm rounded mb-2' >
             <h2 className='text-center p-3'>

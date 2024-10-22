@@ -7,37 +7,29 @@ import Card from '../../../../../providers/Card.js'
 import PlaceHolder from '../../placeholder/PlaceHolder.js'
 import HeaderTwo from '../../../partials/headerTwo.js'
 import ListGroupItem from '../../../partials/listGroupItem.js'
+//api
+import {loadProjects} from './projectsAPI.js'
 function Projects(){
-    const {url,token} = Url();
+    const {url} = Url();
     const [loading, setLoading] = useState(true)
     const [animation, setAnimation] = useState(false)
     const [data, setData] = useState(null)
     const [error, setError] = useState(null)
-    const [requestProjects, setRequestProjects] = useState(false)
-    useEffect(()=>{
-        const fetchProjects = async() =>{
-            if(!requestProjects){
-                try{
-                    setRequestProjects(true)
-                    const request = await fetch(url+'api/projects/',{method:"GET",headers:{
-                        'Authorization':`Token ${token}`
-                    }})
-                    const response = await request.json()
-                    setAnimation(true)
-                    await new Promise(resolve => setTimeout(resolve, 1000))
-                    setData(response)
-                }
-                catch (error){
-                    setError(error)
-                }
-                finally{
-                    setLoading(false)
-                }
-            }
+    const fetchProjects = async () =>{
+        try{
+            setData(await loadProjects(url))
         }
-        fetchProjects();
-    })
-    if(data || loading) return (
+        catch (error){
+            setError(error)
+        }
+        finally{
+            setAnimation(true)
+            await new Promise(resolve => setTimeout(resolve, 1000))
+            setLoading(false)
+        }
+    }//eslint-disable-next-line
+    useEffect(()=>{fetchProjects()},[])
+    return (data || loading)?(
         (loading)?<PlaceHolder className={(animation)?'transitionOut':''}/>:
         <div className='row justify-content-md-center transitionIn'>
             {
@@ -59,8 +51,7 @@ function Projects(){
                 })
             }
         </div>
-    )
-    if(error) return (
+    ):(
         <div className='row'>
             <div className='col-12 pt-3'>
                 <Card>

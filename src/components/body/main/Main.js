@@ -10,16 +10,18 @@ import Awards from './views/awards/Awards.js'
 import HeaderTwo from '../partials/headerTwo.js'
 import OffCanvasButton from './OffCanvasButton.js'
 import Card from '../../../providers/Card.js'
-function Main(){
+const Main = () => {
     const MemoHome = memo(Home, [])
     const MemoExperience = memo(Experience, [])
     const MemoEducation = memo(Education, [])
     const MemoProjects = memo(Projects, [])
     const MemoSkills = memo(Skills, [])
     const MemoAwards = memo(Awards, [])
+    const MemoNav = memo(Nav, [])
+    const MemoOffCanvasButton = memo(OffCanvasButton, [])
     return (
         <div>
-            <Nav/>
+            <MemoNav/>
             <main>
                 <div className='container-fluid m-0 p-0 z-3 d-flex flex-column justify-content-center' style={{minHeight:'70vh'}}> 
                     <div id ="mainContentContainer" className='container-fluid col-12 col-xxl-7'>
@@ -41,7 +43,7 @@ function Main(){
                                         <p className='card-text text-center'>
                                             Click the button below to open the Message Form.
                                         </p>
-                                        <OffCanvasButton/>
+                                        <MemoOffCanvasButton/>
                                     </div>
                                 </Card>
                             </div>

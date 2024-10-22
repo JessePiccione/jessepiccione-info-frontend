@@ -5,41 +5,33 @@ import Card from '../../../../../providers/Card.js'
 import {Url} from '../../../../../providers/APIUrlProvider.js'
 //Components
 import PlaceHolder from '../../placeholder/PlaceHolder.js'
+//partials
 import HeaderTwo from '../../../partials/headerTwo.js'
 import ListGroupItem from '../../../partials/listGroupItem.js'
+//api
+import {loadEducation} from './educationAPI.js'
 function Education(){   
-    const {url,token} = Url()
+    const {url} = Url()
     const [data, setData] = useState(null)
     const [error, setError] = useState(null)
     const [loading, setLoading] = useState(true)
     const [animation, setAnimation] = useState(false)
-    const [requestEducation, setRequestEducation] = useState(false)
-    useEffect(()=>{
-        if(!requestEducation){
-            const fetchEducation = async () => {    
-                try{
-                    setRequestEducation(true)
-                    const request = await fetch(url+'api/education/',{method:"GET",headers:{
-                        'Authorization':`Token ${token}`
-                    }})
-                    const response = await request.json();
-                    setAnimation(true)
-                    await new Promise(resolve => setTimeout(resolve, 1000));
-                    setData(response)
-                }
-                catch (error){
-                    setError(error)
-                }
-                finally{
-                    setLoading(false)
-                }
-            }
-            fetchEducation();
+    const fetchEducation = async () => {    
+        try{
+            setData(await loadEducation(url))
         }
-        
-    })
-    if(loading || data) return (
-        (loading)?<PlaceHolder className={(animation)?'transitionOut':''}/>:
+        catch (error){
+            setError(error)
+        }
+        finally{
+            setAnimation(true)
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            setLoading(false)
+        }
+    }//eslint-disable-next-line 
+    useEffect(()=>{fetchEducation()},[])
+    return (loading || data)? 
+        (loading?<PlaceHolder className={(animation)?'transitionOut':''}/>:
         <div className='row transitionIn'>
             {
                 data.map((item)=>{
@@ -60,8 +52,7 @@ function Education(){
                 })
             }
         </div>
-    )
-    if (error) return (
+    ):(
         <div className='row'>
             <div className='col-12 pt-3'>
                 <Card>{error.message}</Card>
