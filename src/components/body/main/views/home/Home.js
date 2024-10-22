@@ -14,16 +14,23 @@ import PlaceHolder from '../../placeholder/PlaceHolder.js'
 //api 
 import {loadHome, loadTech} from './homeAPI.js'
 function Home(props){
+    //provider state 
     const {url} = Url()
-    const [data, setData] = useState(null)
+    //api state variable
+    const [componentState, setComponentState] = useState({
+        data:null,
+        technology:null
+    })
+    //local state variables 
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)    
-    const [technology, setTechnology] = useState(null)
     const [animation, setAnimation] = useState(false)
     const fetchData = async () => {
         try{
-            setData(await loadHome(url))
-            setTechnology(await loadTech(url))
+           setComponentState({
+                data: await loadHome(url),
+                technology: await loadTech(url)
+           })
         }
         catch(error){
             setError(error)
@@ -35,6 +42,7 @@ function Home(props){
         }
     }//eslint-disable-next-line
     useEffect(()=>{fetchData()},[])
+    const {data, technology} = componentState
     return ((data && technology) || (loading))? 
         (loading?
             <PlaceHolder className={(animation)?"transitionOut":''}/>:

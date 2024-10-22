@@ -11,17 +11,22 @@ import {fetchCategories, fetchSkills} from './skillsAPI.js'
 function Skills(){
     //provider state 
     const {url} = Url()
-    //local state
+    //api state
+    const [componentState , setComponentState] = useState({
+        categories:null,
+        skills:null 
+    })
+    //local component state
     const [loading, setLoading] = useState(true)
     const [animation, setAnimation] = useState(false)
     const [error, setError] = useState(null)
-    const [categories, setCategories] = useState(null)
-    const [skills, setSkills] = useState(null)
     //define function for intial side effect  
     const loadSkills = async () =>{
         try {
-            setCategories(await fetchCategories(url))
-            setSkills(await fetchSkills(url))
+            setComponentState({
+                categories:await fetchCategories(url),
+                skills:await fetchSkills(url)
+            })
         }
         catch (error){
             setError(error)
@@ -33,18 +38,19 @@ function Skills(){
         }
     }//eslint-disable-next-line 
     useEffect(()=>{loadSkills()},[])
+    const {categories,skills} = componentState
     return (loading || (categories && skills))?(
         (loading)?<PlaceHolder className={(animation)?'transitionOut':''}/>:
         <div className='row transitionIn justify-content-md-center'>
-            {categories.map((item)=>{ return (
+            {componentState.categories.map((item)=>{ return (
                 <div key={item.category_name} className='col-12 col-xxl-6 pt-3'>
                     <div className='p-3 shadow-sm rounded d-flex flex-column justify-content-start' style={{'minHeight':'100%'}}>
                         <HeaderTwo title={item.category_name}/>
                         <div className='p-2 rounded shadow-sm'>
                             <ul className='list-group'>
                                 {
-                                skills.filter(value=>value.category === item.id).map((item)=>{
-                                    return <ListGroupItem key={item.name+item.name+''} name={item.name} text={item.name}/>
+                                    componentState.skills.filter(value=>value.category === item.id).map((item)=>{
+                                        return <ListGroupItem key={item.name+item.name+''} name={item.name} text={item.name}/>
                                 })}
                             </ul>    
                         </div>    

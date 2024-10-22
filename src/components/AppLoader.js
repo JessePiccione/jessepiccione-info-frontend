@@ -24,7 +24,7 @@ function AppLoader() {
       await new Promise(resolve=> setTimeout(resolve, 500))
       setLoadingState({...loadingState, loading:false})
     }
-  }//eslist-disable-next-line
+  }//eslint-disable-next-line 
   useEffect(()=>{wakeUpCall()},[])
   return(loadingState.loading || loadingState.error)?(
     <div className='row app'>
